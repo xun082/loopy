@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import ThemeSwitcher from './themeSwitcher';
+import Theme from './theme';
 import Notification from './notification';
 import SearchInput from './searchInput';
 import UserCenter from './userCenter';
@@ -99,7 +99,7 @@ function Actions() {
           </Link>
         </li>
         <li>
-          <ThemeSwitcher />
+          <Theme />
         </li>
         <li>
           <Notification />
