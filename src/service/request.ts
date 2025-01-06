@@ -22,8 +22,6 @@ interface Props extends Params {
   token?: string; // 添加 token 属性
 }
 
-type Config = { next: { revalidate: number } } | { cache: 'no-store' } | { cache: 'force-cache' };
-
 interface ApiError extends Error {
   status?: number;
   url?: string;
@@ -129,10 +127,12 @@ class Request {
             switch (status) {
               case 401:
                 error.message = '未授权，请重新登录';
+
                 // 使用 Next.js 路由进行重定向
                 if (typeof window !== 'undefined') {
                   window.location.href = '/login';
                 }
+
                 break;
               case 403:
                 error.message = '拒绝访问';
@@ -281,6 +281,7 @@ export const handleRequest = async <T>(
     } else {
       console.error('未知错误:', error);
     }
+
     throw error;
   }
 };
