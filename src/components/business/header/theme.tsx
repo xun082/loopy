@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 
 import Button from '@/components/common/button';
 
-export default function ThemeSwitcher() {
+export default function Theme() {
   const { resolvedTheme, setTheme } = useTheme();
 
   const toggleTheme = () => {
