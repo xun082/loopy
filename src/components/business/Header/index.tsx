@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { memo } from 'react';
 
 import ThemeSwitcher from './themeSwitcher';
 import Notification from './notification';
@@ -128,4 +127,4 @@ function Header() {
   );
 }
 
-export default memo(Header);
+export default Header;
