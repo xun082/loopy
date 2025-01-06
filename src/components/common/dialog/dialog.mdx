@@ -1,0 +1,65 @@
+import { Meta, Primary, Controls, Story } from '@storybook/blocks';
+import * as DialogStories from './dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog 对话框
+
+Dialog 是一个模态对话框组件，用于显示重要信息或需要用户交互的内容。它基于 Radix UI 的 Dialog 原语，并集成了 Framer Motion 动画效果。
+
+## 特性
+
+- 🎨 完全可定制的样式
+- 🔄 流畅的动画效果
+- ⌨️ 完整的键盘支持
+- ♿ 符合 WAI-ARIA 标准
+- 🔒 焦点锁定和管理
+- 🌗 支持暗色模式
+
+## 使用方法
+
+### 基础用法
+
+最基础的对话框示例，包含一个按钮来触发对话框的打开和关闭。
+
+<Story name="Basic" />
+
+### 带表单的对话框
+
+这个对话框示例包含了一个简单的表单，用于编辑个人信息。
+
+<Story name="WithForm" />
+
+### 自定义动画效果
+
+对话框的动画可以通过 `motionProps` 属性进行自定义，下面的示例展示了一个带有动画效果的对话框。
+
+<Story name="CustomAnimation" />
+
+## 属性说明
+
+| 属性          | 类型        | 默认值  | 描述                                                                                  |
+| ------------- | ----------- | ------- | ------------------------------------------------------------------------------------- |
+| `motionProps` | `object`    | `null`  | 定义对话框的动画效果，支持 `initial`、`animate`、`exit` 和 `transition` 属性          |
+| `children`    | `ReactNode` | 必需    | 对话框内部内容，通常包含 `DialogTrigger`, `DialogContent`, `DialogFooter` 等组件      |
+| `asChild`     | `boolean`   | `false` | 用于 `DialogTrigger`，如果为 `true`，将不会渲染默认的按钮样式，允许用户传入自定义组件 |
+
+## 常见问题
+
+### 如何在对话框中添加表单？
+
+可以通过在 `DialogContent` 中添加表单元素来实现，例如输入框、选择框等，具体参见 `WithForm` 示例。
+
+### 如何控制对话框的动画？
+
+通过 `motionProps` 属性，你可以自定义对话框的动画效果，包括初始状态、动画状态、退出状态以及动画的过渡配置。参考 `CustomAnimation` 示例了解更多。
+
+### 对话框支持哪些键盘操作？
+
+- **Esc** 键：关闭对话框
+- **Tab** 键：在对话框的可交互元素间切换焦点
+- **Enter** 键：触发当前焦点元素的操作，例如点击按钮
+
+## 结语
+
+Dialog 组件提供了强大的定制能力和用户交互功能，适用于各种需要用户确认或输入的场景。通过配合动画和键盘支持，提升了用户体验和可访问性。
