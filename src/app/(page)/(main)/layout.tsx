@@ -61,9 +61,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
 
         {/* 中间内容区 */}
-        <main className="w-[720px] min-h-[calc(100vh-92px)] bg-white dark:bg-[#1d2127] rounded-lg p-4 shadow-sm">
-          {children}
-        </main>
+        <main className="w-[720px] min-h-[calc(100vh-92px)] rounded-lg shadow-sm">{children}</main>
 
         {/* 右侧边栏 */}
         <div className="w-[240px] shrink-0">
