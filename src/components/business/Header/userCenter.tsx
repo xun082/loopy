@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Dropdown from '@/components/common/dropdown';
 
@@ -19,13 +20,16 @@ export default function UserCenter() {
     <>
       {/* 用户信息 */}
       <div className="p-4">
-        <div className="flex items-center gap-3">
+        <Link
+          href="/user/1"
+          className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+        >
           <Image src="/user.png" alt="user" width={48} height={48} className="rounded-full" />
           <div>
             <h3 className="font-medium">Moment</h3>
             <div className="text-sm text-muted-foreground">矿石: 659k</div>
           </div>
-        </div>
+        </Link>
 
         {/* 等级进度 */}
         <div className="mt-4">
