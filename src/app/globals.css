@@ -102,3 +102,6 @@
     /* Firefox */
   }
 }
+
+@import '@/app/editor/init.css';
+@import '@/app/editor/_style/index.css';

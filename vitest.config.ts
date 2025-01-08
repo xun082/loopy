@@ -10,6 +10,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src', // 添加别名以便更好地管理导入
+      '@/components': '/src/components',
+      '@/utils': '/src/utils',
+      '@/services': '/src/services',
     },
   },
   plugins: [react()],
