@@ -40,7 +40,7 @@ export default function Popover({
   return (
     <div
       ref={popoverRef}
-      className="relative inline-block"
+      className="relative block w-full"
       onMouseEnter={showPopover}
       onMouseLeave={hidePopover}
     >
@@ -52,7 +52,8 @@ export default function Popover({
           'absolute',
           'bg-popover/80 backdrop-blur-xl shadow-lg rounded-lg',
           'animate-in fade-in-0 zoom-in-95',
-          'min-w-[200px] max-w-[400px] whitespace-normal',
+          'whitespace-normal',
+          'w-auto',
           placement === 'right' && 'left-[calc(100%+10px)] top-1/2 transform -translate-y-1/2',
           placement === 'left' && 'right-[calc(100%+10px)] top-1/2 transform -translate-y-1/2',
           placement === 'bottom' && 'top-[calc(100%+10px)] left-1/2 transform -translate-x-1/2',
