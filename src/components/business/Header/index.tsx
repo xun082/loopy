@@ -1,9 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { memo } from 'react';
 
-import ThemeSwitcher from './themeSwitcher';
+import Theme from './theme';
 import Notification from './notification';
 import SearchInput from './searchInput';
 import UserCenter from './userCenter';
@@ -100,7 +99,7 @@ function Actions() {
           </Link>
         </li>
         <li>
-          <ThemeSwitcher />
+          <Theme />
         </li>
         <li>
           <Notification />
@@ -128,4 +127,4 @@ function Header() {
   );
 }
 
-export default memo(Header);
+export default Header;

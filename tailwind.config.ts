@@ -99,6 +99,16 @@ const config = {
         sm: 'calc(var(--radius-lg) - 4px)',
       },
       keyframes: {
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -125,11 +135,17 @@ const config = {
             transform: 'translateY(0)',
           },
         },
+        wave: {
+          '0%': { transform: 'translateX(-100%)' },
+          '50%, 100%': { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'card-move': 'card-move 0.25s',
+        'gradient-xy': 'gradient-xy 15s ease infinite',
+        wave: 'wave 1.5s ease-in-out infinite',
       },
     },
   },
