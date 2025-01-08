@@ -1,0 +1,38 @@
+import { Meta, Controls, Story } from '@storybook/blocks';
+import * as PopoverStories from './popover.stories';
+
+<Meta of={PopoverStories} />
+
+# Popover 组件示例
+
+这是一个简单的 `Popover` 组件示例，展示如何使用 `trigger`、`title` 和 `content` 属性。
+
+## 基础示例
+
+<Story of={PopoverStories.Basic} />
+
+基础示例展示了一个简单的 `Popover`，当用户悬停在按钮上时显示。你可以通过 `trigger` 属性自定义触发器。
+
+## 带箭头的示例
+
+<Story of={PopoverStories.WithArrow} />
+
+带箭头的示例展示了一个带箭头的 `Popover`，箭头指向触发器。可以通过 `arrow` 属性控制箭头的显示。
+
+## 自定义样式示例
+
+<Story of={PopoverStories.CustomStyle} />
+
+自定义样式示例展示了如何使用 `overlayClassName` 和 `overlayStyle` 来自定义 `Popover` 的样式。你可以根据需要调整这些属性以适应你的设计。
+
+## 属性说明
+
+- **trigger**: 触发 `Popover` 显示的元素。
+- **title**: `Popover` 的标题。
+- **content**: `Popover` 的内容，可以是任何 React 节点。
+- **arrow**: 是否显示箭头，默认为 `true`。
+- **placement**: `Popover` 的位置，可以是 `'top'`, `'bottom'`, `'left'`, `'right'`。
+- **overlayClassName**: 自定义 `Popover` 的外层样式类。
+- **overlayStyle**: 自定义 `Popover` 的外层样式。
+- **overlayInnerClassName**: 自定义 `Popover` 的内层样式类。
+- **overlayInnerStyle**: 自定义 `Popover` 的内层样式。
