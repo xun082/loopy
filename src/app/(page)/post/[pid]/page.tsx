@@ -1,4 +1,4 @@
-import ReadConfig from '@/components/business/readConfig';
+import ReadConfig from '@/app/(page)/post/_component/readConfig';
 import AuthorInfo from '@/app/(page)/post/_component/authorInfo';
 import PostCatalog from '@/app/(page)/post/_component/postCatalog';
 import PostRecommend from '@/app/(page)/post/_component/postContent/postRecommend';
