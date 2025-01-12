@@ -149,7 +149,8 @@ const config = {
       },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  plugins: [require('@tailwindcss/typography')],
 } satisfies Config;
 
 export default config;
