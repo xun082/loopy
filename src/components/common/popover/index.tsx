@@ -25,7 +25,7 @@ export default function Popover({
   className,
   arrow = true,
   placement = 'right',
-  zIndex = 10,
+  zIndex = 50,
   overlayClassName,
   overlayStyle,
   overlayInnerStyle,
@@ -40,16 +40,15 @@ export default function Popover({
   return (
     <div
       ref={popoverRef}
-      className="relative block w-full"
+      className="relative inline-block"
       onMouseEnter={showPopover}
       onMouseLeave={hidePopover}
     >
-      {/* 触发器 */}
       <div className="popover-trigger">{trigger}</div>
       <div
         className={cn(
           isVisible ? 'block' : 'hidden',
-          'absolute',
+          'fixed',
           'bg-popover/80 backdrop-blur-xl shadow-lg rounded-lg',
           'animate-in fade-in-0 zoom-in-95',
           'whitespace-normal',
@@ -61,7 +60,11 @@ export default function Popover({
           className,
           overlayClassName,
         )}
-        style={{ zIndex, ...overlayStyle }}
+        style={{
+          zIndex,
+          ...overlayStyle,
+          ...getPopoverPosition(popoverRef.current, placement),
+        }}
       >
         {arrow && (
           <div
@@ -76,19 +79,46 @@ export default function Popover({
           />
         )}
         <div className={cn('p-4', overlayInnerClassName)} style={overlayInnerStyle}>
-          <div
-            className={cn(
-              'bg-transparent absolute ',
-              placement === 'right' && 'left-[-20px] top-0 w-5 h-full',
-              placement === 'left' && 'right-[-20px] top-0 w-5 h-full',
-              placement === 'bottom' && 'top-[-20px] left-0 w-full h-5',
-              placement === 'top' && 'bottom-[-20px] left-0 w-full h-5',
-            )}
-          ></div>
           {title && <div className="text-sm font-medium mb-2">{title}</div>}
           <div className="text-sm text-gray-600 dark:text-gray-300">{content}</div>
         </div>
       </div>
     </div>
   );
+}
+
+function getPopoverPosition(triggerElement: HTMLDivElement | null, placement: string) {
+  if (!triggerElement) return {};
+
+  const rect = triggerElement.getBoundingClientRect();
+  const gap = 10;
+
+  switch (placement) {
+    case 'top':
+      return {
+        left: rect.left + rect.width / 2,
+        bottom: window.innerHeight - rect.top + gap,
+        transform: 'translateX(-50%)',
+      };
+    case 'bottom':
+      return {
+        left: rect.left + rect.width / 2,
+        top: rect.bottom + gap,
+        transform: 'translateX(-50%)',
+      };
+    case 'left':
+      return {
+        right: window.innerWidth - rect.left + gap,
+        top: rect.top + rect.height / 2,
+        transform: 'translateY(-50%)',
+      };
+    case 'right':
+      return {
+        left: rect.right + gap,
+        top: rect.top + rect.height / 2,
+        transform: 'translateY(-50%)',
+      };
+    default:
+      return {};
+  }
 }
