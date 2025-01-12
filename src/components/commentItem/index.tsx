@@ -4,9 +4,9 @@ import { useState, useRef, useEffect } from 'react';
 import { ThumbsUp, MessageSquareMore, Ellipsis } from 'lucide-react';
 
 import { CommentInput } from '../commentForm';
+import { ReplyItem } from '../replyItem';
 
 import { Comment } from '@/app/(page)/post/_component/postComment/index';
-
 export type CommentReply = {
   id: string;
   content: string;
@@ -17,7 +17,8 @@ export type CommentReply = {
   is_liked: boolean;
 };
 
-const Action: React.FC<{
+// 评论操作组件
+export const Action: React.FC<{
   comment?: Comment;
   reply?: CommentReply;
   postId: string;
@@ -120,16 +121,6 @@ const Action: React.FC<{
           className=" mt-3 animate-in slide-in-from-top-2 duration-200 ease-in-out"
         >
           <CommentInput ref={commentInputRef} />
-          {/* <CommonForm
-            type="reply"
-            postId={postId}
-            root={root.comment}
-            comment={comment}
-            reply={reply}
-            placeholder="回复成田君..."
-            autoFocus={true}
-            onSuccess={handleCommentSuccess}
-          /> */}
         </div>
       )}
     </>
@@ -142,6 +133,26 @@ export default function CommonItem({ data, postId }: { data: Comment; postId: st
     username: '罗小黑',
     avatar: 'https://q1.qlogo.cn/g?b=qq&nk=990320751&s=5',
   };
+  const replyList: CommentReply[] = [
+    {
+      id: '1',
+      content: '回复1',
+      created_at: '2024-01-01',
+      user_id: '1',
+      parent_id: '1',
+      like_count: 1,
+      is_liked: false,
+    },
+    {
+      id: '2',
+      content: '回复2',
+      created_at: '2024-01-01',
+      user_id: '2',
+      parent_id: '1',
+      like_count: 1,
+      is_liked: false,
+    },
+  ];
 
   return (
     <div className="comment-item py-4 px-0 flex min-w-0 relative">
@@ -180,17 +191,11 @@ export default function CommonItem({ data, postId }: { data: Comment; postId: st
           <div className="content text-post-text_1 text-base">{data.content}</div>
         </div>
         <Action comment={data} postId={postId} />
-        {/* <div className="comment-reply-wrapper">
-          {reply.map((item) => (
-            <ReplyItem
-              comment={data}
-              key={item.id}
-              reply={item}
-              postId={postId}
-              onSuccess={handleReplySuccess}
-            />
+        <div className="comment-reply-wrapper mt-2">
+          {replyList.map((item) => (
+            <ReplyItem key={item.id} reply={item} postId={postId} />
           ))}
-          {hasMoreReplies && (
+          {/* {hasMoreReplies && (
             <div
               className={`h-10 flex items-center justify-center
               bg-[#f7f8fa] hover:bg-[#f2f3f5] text-post-text_2
@@ -203,8 +208,8 @@ export default function CommonItem({ data, postId }: { data: Comment; postId: st
                 : `查看全部${total > 0 && total - currentPage * COMMENTS_PER_PAGE}条评论`}
               {!isLoading && <AiOutlineDown className="ml-3" />}
             </div>
-          )}
-        </div> */}
+          )} */}
+        </div>
       </div>
     </div>
   );
