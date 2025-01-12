@@ -20,7 +20,7 @@ const StatusBar = () => {
     <div className="rte-status-bar">
       <Toolbar dense>
         <MenuButton
-          icon="SourceCode"
+          icon="SquareCode"
           text="Source Code"
           active={isSourceMode}
           onClick={toggleSourceMode}

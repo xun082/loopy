@@ -1,32 +1,10 @@
-import React, { forwardRef, HTMLProps, useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Command, MenuListProps } from './types';
+import { Surface } from '../../components/ui/Surface';
 
 import { DropdownButton } from '@/components/common/dropdown';
 import Icon, { IconName } from '@/components/common/icons';
-import { cn } from '@/utils';
-
-export type SurfaceProps = HTMLProps<HTMLDivElement> & {
-  withShadow?: boolean;
-  withBorder?: boolean;
-};
-
-export const Surface = forwardRef<HTMLDivElement, SurfaceProps>(
-  ({ children, className, withShadow = true, withBorder = true, ...props }, ref) => {
-    const surfaceClass = cn(
-      className,
-      'bg-white rounded-lg dark:bg-black',
-      withShadow ? 'shadow-sm' : '',
-      withBorder ? 'border border-neutral-200 dark:border-neutral-800' : '',
-    );
-
-    return (
-      <div className={surfaceClass} {...props} ref={ref}>
-        {children}
-      </div>
-    );
-  },
-);
 
 export const MenuList = React.forwardRef((props: MenuListProps, ref) => {
   const scrollContainer = useRef<HTMLDivElement>(null);

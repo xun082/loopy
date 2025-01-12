@@ -1,6 +1,5 @@
 import React, { CSSProperties, memo, useMemo } from 'react';
 import clsx from 'clsx';
-import { icons } from 'lucide-react';
 
 import Tooltip from './ui/Tooltip';
 import Button, { type ButtonProps } from './ui/Button';
@@ -16,7 +15,7 @@ import {
 import Icon, { IconName } from '@/components/common/icons';
 
 interface MenuButtonProps extends Omit<ButtonProps, 'variant' | 'ref' | 'type'> {
-  icon?: keyof typeof icons;
+  icon?: IconName;
   type?: 'button' | 'dropdown' | 'popover';
   buttonType?: ButtonProps['type'];
   text?: string;
@@ -71,7 +70,7 @@ const MenuButton = React.forwardRef<HTMLButtonElement, MenuButtonProps>(
     }, [tooltip, text, shortcuts]);
 
     const renderIcon = useMemo(
-      () => (icon ? <Icon name={icon as IconName} className="rte-button-icon" /> : null),
+      () => (icon ? <Icon name={icon} className="rte-button-icon" /> : null),
       [icon],
     );
 

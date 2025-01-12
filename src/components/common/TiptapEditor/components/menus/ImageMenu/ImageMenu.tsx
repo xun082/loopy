@@ -145,7 +145,7 @@ export const ImageMenu = () => {
             onClick={toggleEditAltText}
           />
           <MenuButton
-            icon="ImageCaption"
+            icon="FileText"
             tooltip={`Caption: ${image?.hasCaption ? 'ON' : 'OFF'}`}
             active={image?.hasCaption}
             onClick={toggleCaption}

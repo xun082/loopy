@@ -1,15 +1,17 @@
 import { ButtonHTMLAttributes, HTMLProps, forwardRef } from 'react';
 
-import Icon from '../icon';
+import Icon from '../icons';
 import Tooltip from '../tooltip';
 import Button, { ButtonProps } from '../button';
 
 import { cn } from '@/utils';
 
-type ToolbarWrapperProps = HTMLProps<HTMLDivElement>;
+type ToolbarWrapperProps = HTMLProps<HTMLDivElement> & {
+  isVertical?: boolean;
+};
 
 function ToolbarWrapper(
-  { children, className, ...rest }: ToolbarWrapperProps,
+  { children, className, isVertical, ...rest }: ToolbarWrapperProps,
   ref: React.Ref<HTMLDivElement>,
 ) {
   return (
@@ -17,11 +19,22 @@ function ToolbarWrapper(
       ref={ref}
       {...rest}
       className={cn(
-        'flex flex-shrink-0 select-none items-center gap-1 px-2 py-1 sticky top-0 left-0 z-50 w-full justify-between overflow-x-auto rounded-t-lg border-b border-b-border backdrop-blur drop-shadow-sm',
+        'flex flex-shrink-0 select-none items-center gap-1 px-2 py-1 sticky top-0 left-0 z-50 overflow-x-auto rounded-t-lg border-b border-b-border backdrop-blur drop-shadow-sm',
+        {
+          'w-full justify-between': !isVertical,
+          'flex-col min-w-[120px] items-stretch': isVertical,
+        },
         className,
       )}
     >
-      <div className="w-full overflow-hidden flex flex-wrap items-center">{children}</div>
+      <div
+        className={cn(
+          'overflow-hidden',
+          isVertical ? 'w-full flex flex-col' : 'w-full flex flex-wrap items-center',
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 }

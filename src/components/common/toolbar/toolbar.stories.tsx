@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 
 import { Toolbar } from './index';
-import Icon from '../icon';
+import Icon from '../icons';
 
 const meta = {
   title: 'Components/Toolbar',

@@ -3,10 +3,10 @@ import React, { useCallback } from 'react';
 
 import { isRowGripSelected } from './utils';
 
-import * as PopoverMenu from '@/components/ui/PopoverMenu';
-import { Toolbar } from '@/components/ui/Toolbar';
-import { Icon } from '@/components/ui/Icon';
-import { MenuProps, ShouldShowProps } from '@/components/menus/types';
+import * as PopoverMenu from '@/components/common/TiptapEditor/components/ui/PopoverMenu';
+import { Toolbar } from '@/components/common/toolbar';
+import { Icon } from '@/components/common/icons';
+import type { MenuProps, ShouldShowProps } from '@/components/common/menu/types';
 
 export const TableRowMenu = React.memo(({ editor, appendTo }: MenuProps): JSX.Element => {
   const shouldShow = useCallback(

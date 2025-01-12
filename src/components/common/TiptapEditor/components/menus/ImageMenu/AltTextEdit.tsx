@@ -26,7 +26,7 @@ const AltTextEdit = ({ initialText, onApply, onCancel }: AltTextEditProps) => {
         autoFocus
       />
       <MenuButton buttonType="submit" icon={'Check'} tooltip={false} />
-      <MenuButton icon={'Close'} tooltip={false} onClick={onCancel} />
+      <MenuButton icon="X" tooltip={false} onClick={onCancel} />
     </form>
   );
 };
