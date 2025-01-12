@@ -3,6 +3,7 @@ import AuthorInfo from '@/app/(page)/post/_component/authorInfo';
 import PostCatalog from '@/app/(page)/post/_component/postCatalog';
 import PostRecommend from '@/app/(page)/post/_component/postContent/postRecommend';
 import PostContent from '@/app/(page)/post/_component/postContent';
+import PostComment from '@/app/(page)/post/_component/postComment';
 // 文章类型
 
 export type Category = {
@@ -82,7 +83,9 @@ export default async function Page({ params }: { params: { pid: string } }) {
           <article className="bg-white h-max w-full px-8 py-10 rounded-xl border border-solid border-post-border hover:border hover:border-solid hover:border-primary">
             <PostContent post={post} />
           </article>
-          {/* <div><PostComment /></div> */}
+          <div className="bg-white rounded-xl border border-solid border-post-border mt-4 py-5 px-8 hover:border hover:border-solid hover:border-primary">
+            <PostComment postId={post.id} />
+          </div>
         </main>
         <aside className="w-1/4 flex flex-col ">
           <AuthorInfo
